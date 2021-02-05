@@ -12,6 +12,8 @@
         <db.driver>org.postgresql.Driver</db.driver>
         <db.username>postgres</db.username>
         <db.password>password</db.password>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
     </properties>
     <dependencies>
         <dependency>
