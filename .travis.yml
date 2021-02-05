@@ -6,14 +6,15 @@ jdk:
 sudo: false
 
 install: true
-script:
-  - mvn install
+script: mvn clean package -DskipTests=true
 services:
   - postgresql
 
 before_install:
   - psql -c "CREATE DATABASE grabber_db;" -U postgres
 
+env:
+  global:
 
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
 # Здесь используется сторонни сервис https://codecov.io/
@@ -24,5 +25,5 @@ notifications:
   email:
     recipients:
       - zubovvp@yandex.ru
-    on_success: never # default: change
-    on_failure: always # default: always
+    on_success: never
+    on_failure: always
