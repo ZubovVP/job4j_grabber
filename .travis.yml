@@ -16,7 +16,7 @@ before_install:
 
 env:
   global:
-    - CODECOV_TOKEN=92dfccfe-8e0f-4b41-9dfe-d3130da3fe57
+    - CODECOV_TOKEN="92dfccfe-8e0f-4b41-9dfe-d3130da3fe57"
 
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
 # Здесь используется сторонни сервис https://codecov.io/
