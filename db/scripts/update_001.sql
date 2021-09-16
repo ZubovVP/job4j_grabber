@@ -1,5 +1,4 @@
-create table person (
+create table rabbit  (
    id serial primary key not null,
-   login varchar(2000),
-   password varchar(2000)
+   created_date bigint,
 );
