@@ -56,9 +56,8 @@ public class AlertRabbit {
             Thread.sleep(10000);
             scheduler.shutdown();
         } catch (SchedulerException | InterruptedException | SQLException se) {
-            se.printStackTrace();
+            LOGGER.error(se.getMessage(), se);
         }
-        System.out.println("FINISH!");
     }
 
     public static class Rabbit implements Job {
