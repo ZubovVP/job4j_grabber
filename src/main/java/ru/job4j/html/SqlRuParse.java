@@ -5,6 +5,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.time.LocalDateTime;
+
 /**
  * Created by Intellij IDEA.
  * User: Vitaly Zubov.
@@ -16,12 +18,14 @@ public class SqlRuParse {
     public static void main(String[] args) throws Exception {
         Document doc = Jsoup.connect("https://www.sql.ru/forum/job-offers").get();
         Elements row = doc.select(".postslisttopic");
+        DateTimeParser dateTimeParser = new SqlRuDateTimeParser();
         for (Element td : row) {
             Element href = td.child(0);
             Element parent = td.parent();
             System.out.println(href.attr("href"));
             System.out.println(href.text());
-            System.out.println("Дата публикации : " + parent.child(5).text());
+            LocalDateTime dateTime = dateTimeParser.parse(parent.child(5).text());
+            System.out.println("Дата публикации : " + dateTime.toString());
             System.out.println("-----------------------------------------------------");
         }
     }
