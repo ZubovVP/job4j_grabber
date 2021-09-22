@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -17,12 +18,21 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "posts")
 public class Post {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "name")
     private String title;
+    @Column(name = "link")
     private String link;
+    @Column(name = "text")
     private String description;
+    @Column(name = "created")
     private LocalDateTime created;
+
 
     @Override
     public boolean equals(Object o) {
@@ -33,11 +43,11 @@ public class Post {
             return false;
         }
         Post post = (Post) o;
-        return Objects.equals(title, post.title) && Objects.equals(link, post.link) && Objects.equals(description, post.description) && Objects.equals(created, post.created);
+        return Objects.equals(title, post.title) && Objects.equals(link, post.link) && Objects.equals(description, post.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, link, description, created);
+        return Objects.hash(title, link, description);
     }
 }

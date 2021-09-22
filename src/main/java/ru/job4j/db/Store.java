@@ -17,4 +17,6 @@ public interface Store {
     List<Post> getAll();
 
     Post findById(int id);
+
+    void delete(int id);
 }
