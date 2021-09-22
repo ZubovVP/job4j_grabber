@@ -6,8 +6,7 @@ jdk:
 sudo: false
 
 install: true
-script:
-  - mvn install
+script: mvn clean package -DskipTests=true
 services:
   - postgresql
 
@@ -16,7 +15,7 @@ before_install:
 
 env:
   global:
-    - CODECOV_TOKEN="92dfccfe-8e0f-4b41-9dfe-d3130da3fe57"
+    - CODECOV_TOKEN="bd9dfe6f-4af0-4723-846f-93cba9548eec"
 
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
 # Здесь используется сторонни сервис https://codecov.io/
@@ -26,6 +25,6 @@ after_success:
 notifications:
   email:
     recipients:
-      - zubovvp@yandex.ru
+      - zubov.vp@yandex.ru
     on_success: never
     on_failure: always
