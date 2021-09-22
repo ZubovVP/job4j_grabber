@@ -1,4 +1,4 @@
-package ru.job4j.html;
+package ru.job4j;
 
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
