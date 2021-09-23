@@ -1,4 +1,4 @@
-CREATE TABLE posts (
+CREATE TABLE IF NOT EXISTS posts(
     id      SERIAL PRIMARY KEY,
     name    VARCHAR(256) NOT NULL,
     text    VARCHAR(10000),
@@ -6,7 +6,7 @@ CREATE TABLE posts (
     created TIMESTAMP
 );
 
-create table rabbit (
+create table IF NOT EXISTS rabbit (
     id           SERIAL PRIMARY KEY,
     created_date bigint
 );
